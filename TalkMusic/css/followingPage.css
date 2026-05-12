@@ -1,0 +1,150 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: #ffffff; 
+    color: #111111;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 28px;
+    height: 60px;
+    background: #0a0a0a;
+    border-bottom: 2px solid #00bcd4;
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.btn-back {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    border-color: #00bcd4;
+    color: #00bcd4;
+}
+.container {
+    max-width: 800px; 
+    margin: 0 auto;   
+    padding: 40px 28px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 32px;
+    color: #111111;
+}
+
+
+.seguiti-list {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px; 
+}
+
+.seguiti-card {
+    display: flex;
+    justify-content: space-between; /* Info utente a sinistra, Bottoni a destra */
+    align-items: center;            /* Centra tutto verticalmente */
+    background: #f2f2f2;           
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    padding: 20px;
+    transition: border-color 0.2s ease;
+}
+
+.seguiti-card:hover {
+    border-color: #00bcd4; /* Il bordo si illumina d'oro al passaggio del mouse */
+}
+
+/* Gruppo che contiene Avatar + Nome */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Cerchio con le iniziali dell'utente */
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Rende il div un cerchio perfetto */
+    background: rgba(197, 160, 89, 0.2);
+    color: #00bcd4;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Evita che l'avatar si schiacci se il nome utente è troppo lungo */
+}
+
+.user-details h3 { font-size: 16px; margin-bottom: 4px; color: #111111; }
+.user-details p { font-size: 13px; color: #222222; }
+
+.user-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* Regole comuni per entrambi i bottoni */
+.btn-unfollow, .btn-view {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+/* Bottone per rimuovere il follow */
+.btn-unfollow {
+    background: transparent;
+    border: 1px solid #555;
+    color: #333333;
+}
+.btn-unfollow:hover { border-color: #00bcd4; color: #00bcd4; }
+
+/* Bottone per vedere il profilo (Azione principale) */
+.btn-view {
+    background: #00bcd4;
+    color: #000;
+}
+.btn-view:hover { background: #00acc1; }
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #222222;
+}
+
+.empty-state p { margin-bottom: 24px; font-size: 16px; }
+
+/* Bottone torna alla home*/
+.btn-primary {
+    display: inline-block;
+    background: #00bcd4;
+    color: #111;
+    padding: 10px 24px;
+    border-radius: 20px; /* Bottone a pillola */
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+.btn-primary:hover { background: #00acc1; }

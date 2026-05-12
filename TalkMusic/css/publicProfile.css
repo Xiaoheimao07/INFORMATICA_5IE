@@ -1,0 +1,335 @@
+body {
+    background: #ffffff; 
+    color: #111111;      
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Allarga gli elementi ai due estremi */
+    padding: 0 28px;
+    height: 60px;
+    background: #0a0a0a;
+    border-bottom: 2px solid #00bcd4; /* Linea d'accento dorata */
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.btn-back {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #555;
+    border-radius: 20px; /* Bottone a pillola */
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+    color: #00bcd4;
+    border-color: #00bcd4;
+}
+
+/* LAYOUT PRINCIPALE*/
+.container {
+    max-width: 600px;
+    margin: 40px auto; /* Centra il contenitore orizzontalmente */
+    padding: 0 28px;
+}
+
+/* Riquadro grigio scuro che contiene le info utente */
+.profile-card {
+    background: #f2f2f2; 
+    border: 1px solid #cccccc;
+    border-radius: 16px;
+    padding: 40px;
+}
+
+/* ===== 4. INTESTAZIONE: AVATAR E INFO ===== */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Creazione di un cerchio perfetto per l'Avatar */
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Trasforma il quadrato in un cerchio */
+    background: rgba(197, 160, 89, 0.2); /* Fondo dorato trasparente */
+    color: #00bcd4;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra le iniziali dentro il cerchio */
+    margin: 0 auto 24px; /* Centra il cerchio stesso nella pagina */
+}
+
+.profile-name {
+    font-size: 28px;
+    margin-bottom: 8px;
+    color: #111111;
+}
+
+.profile-email {
+    color: #222222;
+    font-size: 14px;
+}
+
+/* Griglia a 3 colonne per: Articoli, Follower, Voto Medio */
+.profile-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tre colonne di uguale larghezza (1 frazione ciascuna) */
+    gap: 12px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #cccccc; /* Linea separatrice */
+    padding-bottom: 32px;
+}
+
+.stat { text-align: center; }
+.stat-number { font-size: 20px; font-weight: bold; color: #00bcd4; margin-bottom: 8px; }
+.stat-label { font-size: 10px; text-transform: uppercase; color: #222222; }
+
+/* ===== 5. PULSANTE SEGUI ===== */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-follow {
+    padding: 12px 40px;
+    border-radius: 8px;
+    border: 1px solid #00bcd4;
+    background: transparent;
+    color: #00bcd4;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Classe aggiunta tramite JavaScript quando segui già la persona */
+.btn-follow.following {
+    background: rgba(197, 160, 89, 0.2);
+    color: #111111;
+}
+
+/* ===== 6. TITOLI DELLE SEZIONI (Recensioni / Articoli) ===== */
+.section-block { margin-top: 40px; }
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1.5px;
+    color: #00bcd4;
+    margin-bottom: 20px;
+    padding-left: 12px;
+    border-left: 3px solid #00bcd4; 
+}
+
+/* RECENSIONI E STELLE ===== */
+.review-form {
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* STELLE CSS */
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse; /* Inverte l'ordine: da destra a sinistra */
+    justify-content: flex-end;   /* Le spinge verso sinistra */
+    gap: 8px;
+}
+
+/* Nascondo i veri pallini del radio button */
+.rating-stars input[type="radio"] { 
+    display: none; 
+}
+
+/* Mostro solo le etichette (le stelline ★) */
+.rating-stars label {
+    font-size: 32px;
+    color: #999; /* Stella grigia (spenta) */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* Se passo sopra una stella, coloro di ORO quella e tutte quelle che la "seguono" nel codice (che visivamente stanno a sinistra) */
+.rating-stars label:hover,
+.rating-stars label:hover ~ label,
+.rating-stars input[type="radio"]:checked ~ label {
+    color: #00bcd4;
+}
+
+/* TEXTAREA E BOTTONE RECENSIONE */
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.review-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background: #eeeeee;
+    color: #111111;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 90px;
+    outline: none;
+}
+
+.review-form button {
+    background: #00bcd4;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: flex-start; 
+}
+
+/*  LISTA RECENSIONI E ARTICOLI IN VENDITA */
+.review-item, .article-item {
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+}
+
+.review-stars { color: #00bcd4; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
+.review-comment { font-size: 14px; color: #333333; line-height: 1.5; }
+
+/* Griglia per gli articoli in vendita nel profilo */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* Colonne automatiche larghe minimo 140px */
+    gap: 16px;
+}
+
+/* CARD ARTICOLI */
+.product-card {
+    background: #f2f2f2;
+    border: 1px solid #cccccc;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}.product-card:hover { 
+    border-color: #00bcd4; 
+}
+
+.card-image-wrapper { 
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 3 / 4; 
+    background: #e0e0e0; 
+}
+
+.card-image { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.placeholder-img { 
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 48px; 
+    background: #e8e8e8; 
+}
+
+.stato-badge { 
+    position: absolute; 
+    top: 8px; 
+    left: 8px; 
+    font-size: 10px; 
+    font-weight: bold; 
+    padding: 3px 9px; 
+    border-radius: 10px; 
+    text-transform: uppercase; 
+}
+
+.stato-badge.ottimo { 
+    color: #00bcd4; 
+    border: 1px solid #00bcd4; 
+    background: rgba(255,255,255,0.85); 
+}
+
+.stato-badge.buono { 
+    color: #333333; 
+    border: 1px solid #fff; 
+    background: rgba(255,255,255,0.85); 
+}
+
+.stato-badge.difettato { 
+    color: #cc6666; 
+    border: 1px solid #cc6666; 
+    background: rgba(255,255,255,0.85); 
+}
+
+.card-body { 
+    padding: 12px; 
+}
+
+.card-price { 
+    color: #00bcd4; 
+    font-weight: bold; 
+    font-size: 16px; 
+    margin-bottom: 4px; 
+}
+
+.card-title { 
+    color: #111111; 
+    font-size: 13px; 
+    margin-bottom: 3px; 
+}
+
+.card-category { 
+    color: #222222; 
+    font-size: 11px; 
+    text-transform: uppercase; 
+}
+/* Bottone Segui */
+.btn-follow {
+    background: #00bcd4;
+    color: #111;
+    border: none;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-following {
+    background: transparent;
+    color: #00bcd4;
+    border: 1px solid #00bcd4;
+    padding: 10px 28px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}

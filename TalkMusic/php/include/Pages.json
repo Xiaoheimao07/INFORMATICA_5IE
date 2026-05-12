@@ -1,0 +1,25 @@
+{
+    "richiedeLogin": [
+        "addArticle.php",
+        "deleteArticle.php",
+        "followUser.php",
+        "followingPage.php",
+        "profilePage.php",
+        "buyArticle.php",
+        "addReview.php"
+    ],
+    "richiedeDatabase": [
+        "mainPage.php",
+        "articleDetail.php",
+        "addArticle.php",
+        "deleteArticle.php",
+        "followUser.php",
+        "profilePage.php",
+        "followingPage.php",
+        "login.php",
+        "signIn.php",
+        "publicProfile.php",
+        "buyArticle.php",
+        "addReview.php"
+    ]
+}

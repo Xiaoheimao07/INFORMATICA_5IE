@@ -1,0 +1,156 @@
+body {
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    background: #ffffff;
+    color: #111111;
+    margin: 0;
+}
+
+* { box-sizing: border-box; }
+
+/* ── Navbar identica a mainPage ── */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 28px;
+    height: 60px;
+    background: #0a0a0a;
+    border-bottom: 1px solid #00bcd4;
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.nav-actions { margin-left: auto; display: flex; align-items: center; gap: 20px; }
+
+.nav-link { color: #aaaaaa; text-decoration: none; font-size: 14px; transition: color 0.2s ease; }
+.nav-link:hover { color: white; }
+
+/* ── Wrapper centrato ── */
+.form-wrapper {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* ── Card form ── */
+.form-card {
+    background: #e8e8e8;
+    border: 1px solid #dddddd;
+    border-radius: 16px;
+    padding: 44px 40px;
+    width: 100%;
+    max-width: 440px;
+}
+
+h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+    color: #00bcd4;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* ── Campi ── */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+    flex: 1;
+}
+
+.input-row {
+    display: flex;
+    gap: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    color: #222222;
+    margin-left: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background: #f2f2f2;
+    color: #111111;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+input:focus { border-color: #00bcd4; }
+input::placeholder { color: #999; }
+
+/* ── Bottone ── */
+.btn {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #00bcd4;
+    color: #111;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.2s ease;
+}
+
+.btn:hover { background: #00acc1; }
+
+/* ── Footer link ── */
+.footer-link {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 13px;
+    color: #222222;
+}
+
+.footer-link a { color: #00bcd4; text-decoration: none; font-weight: bold; }
+.footer-link a:hover { text-decoration: underline; }
+
+/* ── Messaggi ── */
+.msg-error {
+    background: rgba(204, 80, 80, 0.15);
+    border: 1px solid #cc5050;
+    color: #ff8080;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.msg-success {
+    background: rgba(80, 180, 100, 0.15);
+    border: 1px solid #50b464;
+    color: #7dd98a;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-card { max-width: 500px; }

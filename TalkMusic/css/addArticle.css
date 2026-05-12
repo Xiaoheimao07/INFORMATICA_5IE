@@ -1,0 +1,174 @@
+body {
+    background: #ffffff;
+    color: #111111;
+    min-height: 100vh;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 28px;
+    height: 60px;
+    background: #0a0a0a;
+    border-bottom: 2px solid #00bcd4; 
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 3px;
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.btn-back {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: 1px solid #555;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.btn-back:hover { color: #00bcd4; border-color: #00bcd4; }
+
+.add-article-container {
+    max-width: 800px;
+    margin: 40px auto; /* Centra il modulo nello schermo */
+    padding: 0 28px;
+}
+
+.form-wrapper {
+    background: #f2f2f2; 
+    border: 1px solid #cccccc;
+    border-radius: 16px;
+    padding: 40px;
+}
+
+h1 { font-size: 28px; color: #111111; margin-bottom: 8px; }
+.form-subtitle { font-size: 14px; color: #222222; margin-bottom: 28px; }
+
+
+.form-articolo {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+}
+
+/* Affianca Categoria, Stato e Prezzo sulla stessa riga */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Divide lo spazio in 3 colonne uguali */
+    gap: 16px;
+}
+
+label { font-size: 14px; color: #333333; font-weight: bold; }
+
+input, select, textarea {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    background: #eeeeee;
+    color: #111111;
+    font-size: 14px;
+    outline: none; /* Rimuove il bordo blu di default del browser */
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+textarea {
+    resize: vertical; /* Permette di allungare l'area di testo solo verso il basso */
+    min-height: 120px;
+}
+
+/* AREA FOTO E ANTEPRIMA*/
+.upload-area {
+    border: 2px dashed #555; /* Bordo tratteggiato */
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    background: #eeeeee;
+}
+
+.upload-area:hover { border-color: #00bcd4; }
+
+.upload-area input[type="file"] {
+    position: absolute;
+    inset: 0; 
+    opacity: 0; 
+    cursor: pointer;
+}
+
+.upload-area p { color: #222222; font-size: 13px; margin: 0; }
+
+#preview-img {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain; /* Mostra l'immagine intera senza tagliarla */
+    border-radius: 8px;
+    display: none; 
+    margin-top: 16px;
+    border: 1px solid #cccccc;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-submit, .btn-cancel {
+    flex: 1; /* Larghi uguali */
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-submit { background: #00bcd4; color: #111; border: none; }
+.btn-submit:hover { background: #00acc1; transform: translateY(-2px); }
+
+.btn-cancel { background: transparent; border: 1px solid #555; color: #111111; }
+.btn-cancel:hover { border-color: #00bcd4; color: #00bcd4; }
+
+/* (Errori o Successo)  */
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    border-left: 4px solid; 
+}
+
+.alert-error {
+    background: rgba(255, 77, 77, 0.1);
+    border-color: #ff4d4d;
+    color: #ff4d4d;
+}
+
+.alert-success {
+    background: rgba(80, 200, 100, 0.1);
+    border-color: #5cc877;
+    color: #5cc877;
+}
+
+/*rimozione freccie da input number*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
