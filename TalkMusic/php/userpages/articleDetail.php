@@ -14,7 +14,7 @@ $idArticolo = (int)$_GET['id'];
 try {
     // prendi tutti i dati dalla tabella articoli e uniscili con i dati dell'utente (nome cognome email) dove l'articolo è acnora disponibile e salvalo come vendId)
     $sql = "SELECT a.*, u.nome, u.cognome, u.email, u.idUtente as vendId
-            FROM ArticoloInVendita a
+            FROM Articolo a
             JOIN Utente u ON a.fkUtenteId = u.idUtente
             WHERE a.idArticolo = :id AND a.disponibilita = TRUE";
             
@@ -61,7 +61,7 @@ try {
 
     //Articoli consigliati
     $sqlArticoli = "SELECT idArticolo, titolo, prezzo, immagine
-               FROM ArticoloInVendita
+               FROM Articolo
                WHERE fkUtenteId = :idVenditore 
                AND idArticolo != :idArticoloCorrente 
                AND disponibilita = TRUE

@@ -14,7 +14,7 @@ $idArticoloDaEliminare = (int)$_GET['id'];
 try {
     
     // Eliminazione dell'articolo se il suo idArticolo corrisponde E se l'fkUtenteId è uguale a quello della sessione
-    $sql = "DELETE FROM ArticoloInVendita WHERE idArticolo = :idArticolo AND fkUtenteId = :idUtente";
+    $sql = "DELETE FROM Articolo WHERE idArticolo = :idArticolo AND fkUtenteId = :idUtente";
     
     $istruzione = DBHandler::getPDO()->prepare($sql);
     $istruzione->execute([

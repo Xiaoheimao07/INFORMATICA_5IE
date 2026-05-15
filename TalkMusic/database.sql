@@ -13,7 +13,7 @@ CREATE TABLE Utente (
     dataRegistrazione TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE ArticoloInVendita (
+CREATE TABLE Articolo (
     idArticolo INT AUTO_INCREMENT PRIMARY KEY,
     fkUtenteId INT NOT NULL, 
     titolo VARCHAR(100) NOT NULL,
@@ -44,21 +44,8 @@ CREATE TABLE Acquista (
     fkArticoloId INT NOT NULL,
     dataAcquisto TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (fkAcquirenteId) REFERENCES Utente(idUtente) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (fkArticoloId) REFERENCES ArticoloInVendita(idArticolo) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (fkArticoloId) REFERENCES Articolo(idArticolo) ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-CREATE TABLE RecensioneUtente (
-    idRecensione INT AUTO_INCREMENT PRIMARY KEY,
-    fkRecensoreId INT NOT NULL,  
-    fkRecensitoId INT NOT NULL,  
-    valutazione TINYINT NOT NULL CHECK (valutazione BETWEEN 1 AND 5),
-    commento TEXT,
-    dataRecensione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE KEY unica_recensione (fkRecensoreId, fkRecensitoId),
-    FOREIGN KEY (fkRecensoreId) REFERENCES Utente(idUtente) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (fkRecensitoId) REFERENCES Utente(idUtente) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
 CREATE TABLE RecensioneArticolo (
     idRecensione INT AUTO_INCREMENT PRIMARY KEY,
     fkRecensoreId INT NOT NULL,
@@ -68,5 +55,5 @@ CREATE TABLE RecensioneArticolo (
     dataRecensione TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY unica_recensione_articolo (fkRecensoreId, fkArticoloId),
     FOREIGN KEY (fkRecensoreId) REFERENCES Utente(idUtente) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (fkArticoloId) REFERENCES ArticoloInVendita(idArticolo) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (fkArticoloId) REFERENCES Articolo(idArticolo) ON DELETE CASCADE ON UPDATE CASCADE
 );

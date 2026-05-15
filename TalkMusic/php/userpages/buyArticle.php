@@ -35,7 +35,7 @@ try {
     
     // verifico che l'articolo sia ancora disponibile e che non sia dell'utente loggato
 
-    $sqlControllo = "SELECT fkUtenteId, disponibilita FROM ArticoloInVendita WHERE idArticolo = :articleId";
+    $sqlControllo = "SELECT fkUtenteId, disponibilita FROM Articolo WHERE idArticolo = :articleId";
 
     $istruzioneControllo = $pdo->prepare($sqlControllo);
 
@@ -65,7 +65,7 @@ try {
 
 
     // segno articolo come venduto
-    $sqlA = "UPDATE ArticoloInVendita SET disponibilita = FALSE WHERE idArticolo = :articleId";
+    $sqlA = "UPDATE Articolo SET disponibilita = FALSE WHERE idArticolo = :articleId";
     $istruzioneA = $pdo->prepare($sqlA);
     $istruzioneA->bindParam(':articleId', $idArticolo, PDO::PARAM_INT);
     $istruzioneA->execute();

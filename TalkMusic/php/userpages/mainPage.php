@@ -12,7 +12,7 @@ try {
 
     //seleziono tutti gli articoli e dati venditori
     $sql = "SELECT a.*, u.nome, u.cognome, u.email 
-            FROM ArticoloInVendita a
+            FROM Articolo a
             JOIN Utente u ON a.fkUtenteId = u.idUtente
             WHERE a.disponibilita = TRUE";
     
@@ -98,6 +98,7 @@ try {
         </div>
     </nav>
 
+    <div class="filters-bar-wrapper">
     <div class="filters-bar">
         <button class="chip" onclick="filterCategory(this, 'tutti')">Tutto</button>
         <button class="chip" onclick="filterCategory(this, 'chitarre')">Chitarre</button>
@@ -111,6 +112,7 @@ try {
             <option value="asc" <?php if($filtroPrezzo == 'asc') echo 'selected'; ?>>Prezzo: Crescente (↑)</option>
             <option value="desc" <?php if($filtroPrezzo == 'desc') echo 'selected'; ?>>Prezzo: Decrescente (↓)</option>
         </select>
+    </div>
     </div>
 
     <main class="main-content">

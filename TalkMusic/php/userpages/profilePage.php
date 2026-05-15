@@ -25,7 +25,7 @@ try {
 
 
     //  Conteggio dei tuoi articoli in vendita 
-    $sqlConteggioArticoli = "SELECT COUNT(*) as totale FROM ArticoloInVendita WHERE fkUtenteId = :userId";
+    $sqlConteggioArticoli = "SELECT COUNT(*) as totale FROM Articolo WHERE fkUtenteId = :userId";
     $istruzioneConteggio = DBHandler::getPDO()->prepare($sqlConteggioArticoli);
     $istruzioneConteggio->execute([':userId' => $idUtenteLoggato]);
     $statisticheArticoli = $istruzioneConteggio->fetch();
@@ -51,7 +51,7 @@ try {
 
     //  La lista articoli in vendita 
     $sqlMieiArticoli = "SELECT idArticolo, titolo, prezzo, categoria, stato, immagine
-                        FROM ArticoloInVendita 
+                        FROM Articolo 
                         WHERE fkUtenteId = :userId ORDER BY dataPost DESC";
 
     $istruzioneMieiArticoli = DBHandler::getPDO()->prepare($sqlMieiArticoli);
@@ -105,6 +105,11 @@ try {
 
     <main class="container">
 
+        <div class="page-layout">
+
+        <!-- colonna sinistra: profilo -->
+        <div class="col-left">
+
         <!-- card principale del profilo -->
 
         <div class="profile-card">
@@ -149,7 +154,11 @@ try {
             </div>
 
 
-        </div>
+        </div><!-- fine profile-card -->
+        </div><!-- fine col-left -->
+
+        <!-- colonna destra: articoli -->
+        <div class="col-right">
 
 <!--i tuoi annunci -->
 <div class="section-block">
@@ -163,7 +172,7 @@ try {
                 <!-- Immagine a sinistra -->
                 <div class="article-item-img">
                     <?php if (!empty($annuncio['immagine'])): ?>
-                        <img src="../../Immagini/<?php echo htmlspecialchars($annuncio['immagine']); ?>" alt="<?php echo htmlspecialchars($annuncio['titolo']); ?>">
+                        <img src="../../uploads/articoli/<?php echo htmlspecialchars($annuncio['immagine']); ?>" alt="<?php echo htmlspecialchars($annuncio['titolo']); ?>">
                     <?php else: ?>
                         <div class="article-item-noimg">🎵</div>
                     <?php endif; ?>
@@ -185,9 +194,10 @@ try {
             </div>
         <?php endforeach; ?>
     <?php endif; ?>
-</div>
+</div><!-- fine section-block -->
 
-
+        </div><!-- fine col-right -->
+        </div><!-- fine page-layout -->
 
     </main>
 </body>

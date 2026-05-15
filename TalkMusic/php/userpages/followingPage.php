@@ -19,7 +19,7 @@ try {
     // count degli articoli in vendita per ogni utente seguito
     foreach ($utentiSeguiti as &$utente) {
         $sqlConteggio = "SELECT COUNT(*) as totale 
-                         FROM ArticoloInVendita 
+                         FROM Articolo 
                          WHERE fkUtenteId = :idVenditore AND disponibilita = TRUE";
         
         $istrConteggio = DBHandler::getPDO()->prepare($sqlConteggio);

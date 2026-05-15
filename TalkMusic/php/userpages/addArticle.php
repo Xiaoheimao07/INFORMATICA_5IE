@@ -12,11 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descrizione = trim($_POST['descrizione']);
     $stato       = 'ottimo'; // valore default, non più nel form
     $categoria   = $_POST['categoria'];
-    $prezzo      = 0; // valore default, non più nel form 
+    $prezzo      = floatval($_POST['prezzo']);
 
     //controllo campi obbligatori
 
-    if (empty($titolo) || empty($categoria)) {
+    if (empty($titolo) || empty($categoria) || $prezzo <= 0) {
         $messaggio = "Per favore, compila tutti i campi obbligatori (*).";
         $tipoMessaggio = "error";
     } 
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // salvataggio nel database
 
         try {
-            $sql = "INSERT INTO ArticoloInVendita 
+            $sql = "INSERT INTO Articolo 
                     (fkUtenteId, titolo, descrizione, prezzo, stato, categoria, immagine, disponibilita)
                     VALUES (:userId, :titolo, :descrizione, :prezzo, :stato, :categoria, :immagine, TRUE)";
 
@@ -105,9 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main class="add-article-container">
         <div class="form-wrapper">
-            <h1>Vendi il tuo articolo</h1>
-            <p class="form-subtitle">Completa il form per mettere in vendita il tuo articolo</p>
-
+            
             <!--  messaggio (errore o successo) -->
             <?php if ($messaggio): ?>
                 <div class="alert alert-<?php echo $tipoMessaggio; ?>">
@@ -119,7 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="form-group">
                     <label for="titolo">Titolo articolo *</label>
-                    <input type="text" id="titolo" name="titolo" placeholder="es: Fender Stratocaster MIM" required>
+                    <input type="text" id="titolo" name="titolo" placeholder="Fender telecaste..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="prezzo">Prezzo (€) *</label>
+                    <input type="number" id="prezzo" name="prezzo" placeholder="0.00" min="0.01" step="0.01" required>
                 </div>
 
                 <div class="form-group">
@@ -137,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <label for="descrizione">Descrizione</label>
                     <textarea id="descrizione" name="descrizione"
-                              placeholder="Descrivi lo stato dell'articolo, eventuali difetti, custodia inclusa..."
+                              placeholder="Particolarità di questo strumento..."
                               rows="6"></textarea>
                 </div>
 
@@ -148,8 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="file" name="immagine" id="immagineInput"
                                accept="image/jpeg,image/png,image/webp"
                                onchange="previewImage(event)">
-                        <div class="upload-icon">📷</div>
-                        <p>Clicca per caricare una foto (JPG, PNG, WEBP — max 15MB)</p>
+                        <p>Carica una foto</p>
                     </div>
 
                     <!-- l'anteprima della foto -->
